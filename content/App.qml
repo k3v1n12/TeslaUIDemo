@@ -5,8 +5,9 @@ import QtQuick 6.5
 import TeslaUIDemo
 
 Window {
-    width: mainScreen.width
-    height: mainScreen.height
+    id: mainWindow
+    width: Constants.width
+    height: Constants.height
 
     visible: true
     title: "Tesla"
