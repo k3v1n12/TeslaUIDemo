@@ -7,7 +7,9 @@ project(TeslaUIDemoApp LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick)
+set(Qt6_Dir "D:\\qt\\6.5.2\\msvc2019_64\\lib\\cmake\\Qt6")
+
+find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick Positioning Location Sql OpenGL)
 
 if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
     qt_standard_project_setup()
@@ -26,6 +28,10 @@ target_link_libraries(TeslaUIDemoApp PRIVATE
     Qt6::Gui
     Qt6::Qml
     Qt6::Quick
+    Qt6::Location
+    Qt6::Positioning
+    Qt6::Sql
+    Qt6::OpenGL
 )
 
 if (BUILD_QDS_COMPONENTS)
