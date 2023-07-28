@@ -1,50 +1,50 @@
-cmake_minimum_required(VERSION 3.21.1)
+cmake_minimum_required(VERSION 3.16)
 
-option(LINK_INSIGHT "Link Qt Insight Tracker library" ON)
-option(BUILD_QDS_COMPONENTS "Build design studio components" ON)
+project(TeslaUIDemo VERSION 0.1 LANGUAGES CXX)
 
-project(TeslaUIDemoApp LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_AUTOMOC ON)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Positioning Location Sql OpenGL)
 
-set(Qt6_Dir "D:\\qt\\6.5.2\\msvc2019_64\\lib\\cmake\\Qt6")
+qt_standard_project_setup(REQUIRES 6.5)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick Positioning Location Sql OpenGL)
-
-if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
-    qt_standard_project_setup()
-endif()
-
-qt_add_executable(TeslaUIDemoApp src/main.cpp)
-
-qt_add_resources(TeslaUIDemoApp "configuration"
-    PREFIX "/"
-    FILES
-        qtquickcontrols2.conf
+qt_add_executable(appTeslaUIDemo
+    main.cpp
 )
 
-target_link_libraries(TeslaUIDemoApp PRIVATE
-    Qt6::Core
-    Qt6::Gui
-    Qt6::Qml
-    Qt6::Quick
-    Qt6::Location
-    Qt6::Positioning
-    Qt6::Sql
-    Qt6::OpenGL
+qt_add_qml_module(appTeslaUIDemo
+    URI TeslaUIDemo
+    VERSION 1.0
+    QML_FILES Main.qml
+    RESOURCES ui/assets/car.jpg ui/assets/caricon.png
+    QML_FILES ui/BottomBar/BottomBar.qml
+    QML_FILES ui/LeftScreen/LeftScreen.qml
+    QML_FILES ui/RightScreen/RightScreen.qml
+
+
 )
 
-if (BUILD_QDS_COMPONENTS)
-    include(${CMAKE_CURRENT_SOURCE_DIR}/qmlcomponents)
-endif()
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+# If you are developing for iOS or macOS you should consider setting an
+# explicit, fixed bundle identifier manually though.
+set_target_properties(appTeslaUIDemo PROPERTIES
+#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appTeslaUIDemo
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/qmlmodules)
+target_link_libraries(appTeslaUIDemo
+    PRIVATE Qt6::Quick
+            Qt6::Location
+            Qt6::Positioning
+            Qt6::Sql
+            Qt6::OpenGL
+)
 
-if (LINK_INSIGHT)
-    include(${CMAKE_CURRENT_SOURCE_DIR}/insight)
-endif ()
-
-install(TARGETS TeslaUIDemoApp
+include(GNUInstallDirs)
+install(TARGETS appTeslaUIDemo
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

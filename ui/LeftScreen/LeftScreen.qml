@@ -9,6 +9,14 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Rectangle {
-    color: "#fffe12"
+    color: "#ffffff"
+
+    Image {
+        id: carImage
+        anchors.centerIn: parent
+        width: parent.width * .75
+        source: "../assets/car.jpg"
+        fillMode: Image.PreserveAspectFit
+    }
 
 }
