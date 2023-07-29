@@ -20,6 +20,9 @@ qt_add_qml_module(appTeslaUIDemo
     QML_FILES ui/BottomBar/BottomBar.qml
     QML_FILES ui/LeftScreen/LeftScreen.qml
     QML_FILES ui/RightScreen/RightScreen.qml
+    SOURCES controller/system.h controller/system.cpp
+    RESOURCES ui/assets/locked.png ui/assets/unlocked.png
+    RESOURCES ui/assets/person.png
 
 
 )
