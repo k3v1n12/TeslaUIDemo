@@ -12,13 +12,16 @@ public:
 
     int targetTemperature() const;
 
-slots:
+    Q_INVOKABLE void changeTargetTemperature(const int& val);
+
+public slots:
 
     void setTargetTemperature(int newTargetTemperature);
 
 signals:
 
     void targetTemperatureChanged();
+
 private:
     int m_targetTemperature;
 };

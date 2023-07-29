@@ -27,6 +27,7 @@ qt_add_qml_module(appTeslaUIDemo
     QML_FILES ui/RightScreen/MapDisplay.qml
     RESOURCES ui/assets/search.png
     SOURCES controller/hvachandler.h controller/hvachandler.cpp
+    QML_FILES ui/BottomBar/HVACComponent.qml
 
 
 )
