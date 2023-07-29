@@ -29,10 +29,10 @@ Window {
             id: leftScreen
             Layout.row: 0
             Layout.column: 0
-            Layout.rowSpan: 10
+            Layout.rowSpan: 11
             Layout.columnSpan: 4
             Layout.preferredWidth: 4
-            Layout.preferredHeight: 10
+            Layout.preferredHeight: 11
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
@@ -41,22 +41,22 @@ Window {
             id: rightScreen
             Layout.row: 0
             Layout.column: 4
-            Layout.rowSpan: 10
+            Layout.rowSpan: 11
             Layout.columnSpan: 8
             Layout.preferredWidth: 8
-            Layout.preferredHeight: 10
+            Layout.preferredHeight: 11
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
 
         BottomBar {
             id: bottomBar
-            Layout.row: 10
+            Layout.row: 11
             Layout.column: 0
-            Layout.rowSpan: 2
+            Layout.rowSpan: 1
             Layout.columnSpan: 12
             Layout.preferredWidth: 12
-            Layout.preferredHeight: 2
+            Layout.preferredHeight: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
         }

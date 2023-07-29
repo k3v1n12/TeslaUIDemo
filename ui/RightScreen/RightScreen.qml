@@ -1,27 +1,9 @@
 import QtQuick 2.15
-import QtLocation
-import QtPositioning
-import "D:\qtproject\TeslaUIDemo\Main.qml"
 
 Rectangle {
-    Plugin {
-        id: mapPlugin
-        name: "osm"
-        PluginParameter { name: "osm.useragent"; value: "My great Qt OSM application" }
-        PluginParameter { name: "osm.mapping.host"; value: "http://osm.tile.server.address/" }
-        PluginParameter { name: "osm.mapping.copyright"; value: "All mine" }
-        PluginParameter { name: "osm.routing.host"; value: "http://osrm.server.address/viaroute" }
-        PluginParameter { name: "osm.geocoding.host"; value: "http://geocoding.server.address" }
-        PluginParameter { name: "osm.mapping.providersrepository.address"; value: "http://127.0.0.1/osm/" }
-        PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }
-    }
 
-    Map {
+    MapDisplay {
         anchors.fill: parent
-        plugin: mapPlugin
-        center: QtPositioning.coordinate(37.64, -121.61) // Tesla
-        zoomLevel: 14
-        activeMapType: supportedMapTypes[1]
     }
 
     Image {
@@ -65,7 +47,7 @@ Rectangle {
         font.bold: true
         color: "black"
 
-        text: systemHandler.outdoorTemp + "°F"
+        text: systemHandler.outdoorTemp + "°C"
     }
 
     Image {
@@ -87,10 +69,23 @@ Rectangle {
             leftMargin: 10
             bottom: lockIcon.bottom
         }
-        font.pixelSize: 12
+        font.pixelSize: 14
         font.bold: true
         color: "black"
 
         text: systemHandler.userName
+    }
+
+    NavigationSearchBox {
+        id: navSearchBox
+
+        height: parent.width / 15
+
+        anchors {
+            left: lockIcon.left
+            right: usernameDisplay.right
+            top: lockIcon.bottom
+            topMargin: 10
+        }
     }
 }

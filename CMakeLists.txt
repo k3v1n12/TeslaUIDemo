@@ -23,6 +23,10 @@ qt_add_qml_module(appTeslaUIDemo
     SOURCES controller/system.h controller/system.cpp
     RESOURCES ui/assets/locked.png ui/assets/unlocked.png
     RESOURCES ui/assets/person.png
+    QML_FILES ui/RightScreen/NavigationSearchBox.qml
+    QML_FILES ui/RightScreen/MapDisplay.qml
+    RESOURCES ui/assets/search.png
+    SOURCES controller/hvachandler.h controller/hvachandler.cpp
 
 
 )
