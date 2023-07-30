@@ -3,6 +3,8 @@ import QtQuick 2.15
 Item {
     property string fontColor: "#f0eded"
     property var hvacController
+
+    width: 78 * (parent.width / 1200)
     Rectangle {
         id:decrementButton
         anchors {

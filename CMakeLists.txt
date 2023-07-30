@@ -28,6 +28,9 @@ qt_add_qml_module(appTeslaUIDemo
     RESOURCES ui/assets/search.png
     SOURCES controller/hvachandler.h controller/hvachandler.cpp
     QML_FILES ui/BottomBar/HVACComponent.qml
+    RESOURCES ui/assets/fullVolume.png ui/assets/halfVolume.png ui/assets/lowVolume.png ui/assets/muteVolume.png
+    SOURCES controller/audiocontroller.h controller/audiocontroller.cpp
+    QML_FILES ui/BottomBar/VolumeLevelComponent.qml
 
 
 )

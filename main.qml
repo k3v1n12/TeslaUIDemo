@@ -1,7 +1,5 @@
 import QtQuick
 import QtQuick.Window
-import QtQuick.Controls 6.5
-import TeslaUIDemo
 import QtQuick.Layouts
 import "ui/BottomBar"
 import "ui/LeftScreen"

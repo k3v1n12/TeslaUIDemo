@@ -4,6 +4,7 @@ Rectangle {
     id: navigationSearchBox
     radius: 5
     color:  "#f0f0f0"
+    opacity: .5
 
     Image {
         id:searchIcon

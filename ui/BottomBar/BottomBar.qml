@@ -28,11 +28,21 @@ Rectangle {
         HVACComponent {
             id: driverHVACControl
             anchors {
-                right: parent.right
-                rightMargin: 120
+                right: volumeLevelControl.left
+                rightMargin: 150
                 top:parent.top
                 bottom:parent.bottom
             }
             hvacController: driverHVAC
+        }
+
+        VolumeLevelComponent {
+            id: volumeLevelControl
+            anchors {
+                right: parent.right
+                rightMargin: 20
+                top: parent.top
+                bottom: parent.bottom
+            }
         }
 }
